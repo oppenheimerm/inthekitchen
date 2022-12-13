@@ -5,11 +5,11 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITK.Web", "ITK.Web\ITK.Web.csproj", "{6584A4D5-338A-4A9E-8DB4-1A467E70A105}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITK.Core", "ITK.Core\ITK.Core.csproj", "{F2B367C6-5874-462E-B1D3-DF6669B8E8DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITK.Core", "ITK.Core\ITK.Core.csproj", "{F2B367C6-5874-462E-B1D3-DF6669B8E8DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITK.DataStore.InMemory", "ITK.DataStore.InMemory\ITK.DataStore.InMemory.csproj", "{C6FB919B-C9F6-41DE-9D60-BDB77B0E6653}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITK.DataStore.InMemory", "ITK.DataStore.InMemory\ITK.DataStore.InMemory.csproj", "{C6FB919B-C9F6-41DE-9D60-BDB77B0E6653}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITK.UseCases", "ITK.Usecases\ITK.UseCases.csproj", "{94B4A1C9-8408-4E58-B18A-5A6B64649020}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITK.UseCases", "ITK.Usecases\ITK.UseCases.csproj", "{94B4A1C9-8408-4E58-B18A-5A6B64649020}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

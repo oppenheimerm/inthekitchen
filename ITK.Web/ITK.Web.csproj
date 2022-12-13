@@ -15,4 +15,14 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ITK.Core\ITK.Core.csproj" />
+    <ProjectReference Include="..\ITK.DataStore.InMemory\ITK.DataStore.InMemory.csproj" />
+    <ProjectReference Include="..\ITK.Usecases\ITK.UseCases.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages\Components\" />
+  </ItemGroup>
+
 </Project>
