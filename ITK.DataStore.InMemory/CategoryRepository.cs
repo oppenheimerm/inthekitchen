@@ -19,7 +19,7 @@ namespace ITK.DataStore.InMemory
                 new Category { Id = 1002, Title = "Bake", Code = "BAKE" },
                 new Category { Id = 1003, Title = "Food Prep", Code = "FPRP" },
                 new Category { Id = 1004, Title = "Drink", Code = "DRNK" },
-                new Category { Id = 1005, Title = "Pots, Pans and Serve", Code = "PPSV" },
+                new Category { Id = 1005, Title = "Cookware", Code = "CKWR" },
                 new Category { Id = 1006, Title = "Cook Books", Code = "CKBK" },
                 new Category { Id = 1007, Title = "Cooking Utensils", Code = "COUT"}
             };

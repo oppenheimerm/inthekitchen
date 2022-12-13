@@ -21,6 +21,8 @@ namespace ITK.Core
         [Required]
         public decimal Price { get; set; }
         [Required]
+        public int? StockQuantity { get; set; }
+        [Required]
         [MaxLength(25, ErrorMessage = "Maximum 25 character limit")]
         public string Image { get; set; }
         [Required]
