@@ -54,6 +54,16 @@ window.addEventListener('scroll', function (e) {
 }, 500);
 
 /*=============== NEW SWIPER ===============*/
+var newSwiper = new Swiper(".new-swiper", {
+    spaceBetween: 16,
+    centeredSlide: true,
+    slidesPerView: "auto", 
+    loop: 'true',
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+});
 
 
 /*=============== SHOW SCROLL UP ===============*/

@@ -38,6 +38,7 @@
     --z-fixed: 100;
     /*========== others ==========*/
     --border-radius: .5rem;
+    --box-shadow: 0px 3px 8px -4px rgb(0 0 0 / 15%);
 }
 
 /* Responsive typography */
@@ -256,7 +257,7 @@ input {
 
 .slide__item-details-brief {
     background-color: #fff;
-    box-shadow: 0px 3px 8px -4px rgb(0 0 0 / 15%);
+    box-shadow: var(--box-shadow);
     padding: 0.75rem;
 }
 
@@ -388,11 +389,114 @@ input {
 }
 
 /*========== DISCOUNT SECTION ==========*/
+.discount__container {
+    /*
+        2 columns
+        max-content - Sets the size of each column to depend on the largest 
+        item in the column.
 
+        note the div class for this element also uses the "grid".
+    */
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    align-items: center;
+    column-gap: 7rem;
+    background-color: var(--container-color);
+    padding: 3rem 0;
+    border-radius: 3rem;
+    box-shadow: var(--box-shadow);
+}
 
+.discount__img{
+    width: 200px;
+}
 
+.discount__data{
+    padding-left: 6rem;
+    text-align: center;
+}
+
+.discount__title{
+    font-size: var(--h2-font-size);
+    margin-bottom: var(--mb-2);
+}
 /*========== NEW ARRIVALS SECTION ==========*/
+.new__container{
+    padding-top: 1rem;
+}
 
+.new__img{
+    width: 156px;
+    margin-bottom: var(--mb-1);
+    transition: .3s;
+}
+
+.new__content{
+    position: relative;
+    background-color: var(--container-color);
+    width: 310px;
+    padding: 2rem 0;
+    border-radius: 1rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.new__tag{
+    position: absolute;
+    top: 8%;
+    left: 8%;
+    background-color: var(--first-color);
+    background: #fff;
+}
+
+.new__title{
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+}
+
+.new__subtitle{
+    display: block;
+    font-size: var(--small-font-size);
+    margin-bottom: var(--mb-1);
+}
+
+.new__prices{
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+}
+
+.new__price{
+    font-weight: var(--font-medium);
+    color: var(--title-color);
+}
+
+.new__discount{
+    color: var(--first-color);
+    font-size: var(--smaller-font-size);
+    text-decoration: line-through;
+}
+
+.new__button{
+    display: inline-flex;
+    padding: .5rem;
+    border-radius: .25rem .25rem .75rem .25rem;
+    position: absolute;
+    bottom: 0;
+    right: -3rem;
+}
+
+.new__icon{
+    font-size: 1.25rem;
+}
+
+.new__content:hover .new__img{
+    transform: translateY(-.5rem);
+}
+
+.new__content:hover .new__button{
+    right: 0;
+}
 
 /*========== STEPS SECTION ==========*/
 
