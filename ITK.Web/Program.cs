@@ -1,3 +1,5 @@
+using ITK.DataStore.InMemory;
+using ITK.UseCases.DataStoreInterfaces;
 using ITK.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +15,14 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
+
+
+//  Repositories
+//builder.Services.AddSingleton<ICategoryRepository, CategoryRepository>();
+
+
+//  Usercases
+//builder.Services.AddTransient<IViewCategoriesUseCase, ViewCategoriesUsecase>();
 
 var app = builder.Build();
 

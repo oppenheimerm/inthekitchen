@@ -28,5 +28,7 @@ namespace ITK.Core
         [Required]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+        [MaxLength(25, ErrorMessage = "Maximum 300 character limit")]
+        public string EditorsNote { get; set; } = string.Empty;
     }
 }

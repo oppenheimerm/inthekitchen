@@ -34,7 +34,7 @@
 /*=============== HOME SWIPER ===============*/
 var homeSwiper = new Swiper(".home-swiper", {
     spaceBetween: 30,
-    loop: 'true',
+    loop: 'false',
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
