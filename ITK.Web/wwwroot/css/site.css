@@ -22,6 +22,7 @@
     --normal-font-size: 1rem;
     --small-font-size: .875rem;
     --smaller-font-size: .813rem;
+    --letter-spacing-wide: 0.25rem;/* 4px */
     /*========== Font weight ==========*/
     --font-medium: 500;
     --font-bold: 600;
@@ -110,9 +111,14 @@ input {
     padding: 7rem 0 2rem;
 }
 
+.featured-section{
+    margin: 7rem 0 2rem;
+}
+
 .section__title,
 .breadcrumb__title {
     font-size: var(--h1-font-size);
+    letter-spacing: var(--letter-spacing-wide);
 }
 
 .section__title,
@@ -214,7 +220,8 @@ input {
 /* Change background header */
 .scroll-header{
     background-color: var(--body-color);
-    box-shadow: 0 1px 4px var(--shadow);
+    box-shadow: 0 1px 4px var(--shadow);    
+    opacity: 0.97;
 }
 
 /* Active link */
@@ -395,7 +402,7 @@ input {
         max-content - Sets the size of each column to depend on the largest 
         item in the column.
 
-        note the div class for this element also uses the "grid".
+        note the div class for this element also uses the ".grid" class style.
     */
     grid-template-columns: repeat(2, max-content);
     justify-content: center;
@@ -431,7 +438,7 @@ input {
     transition: .3s;
 }
 
-.new__content{
+.new__content {
     position: relative;
     background-color: var(--container-color);
     width: 310px;
@@ -439,6 +446,7 @@ input {
     border-radius: 1rem;
     text-align: center;
     overflow: hidden;
+    box-shadow: var(--box-shadow);
 }
 
 .new__tag{
@@ -499,54 +507,129 @@ input {
 }
 
 /*========== STEPS SECTION ==========*/
+.steps__bg {
+    background-color: var(--container-color);
+    box-shadow: var(--box-shadow);
+    padding: 3.5rem 2.5rem;
+    border-radius: 1rem;
+}
+
+.steps__container {
+    /* 
+        read repeat(3, 1fr) as:
+        1st number - number of times you want something repeated.
+        2nd number - flexible lengt - how much of any available free
+        space we want something to use, thus 1fr = each taking up 1 portion
+        of the available room.
+
+    */
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+    padding-top: 1rem;
+}
+
+.steps__card {
+    background-color: var(--body-color);
+    padding: 2.5rem 3rem 2rem 1.5rem;
+    box-shadow: var(--box-shadow);
+    border-radius: 1rem;
+}
+
+.steps__card-number {
+    display: inline-block;
+    background-color: var(--first-color);
+    color: #fff;
+    padding: .5rem .75rem;
+    border-radius: .25rem;
+    font-size: var(--h2-font-size);
+    margin-bottom: var(--mb-1-5);
+    transition: .3s;
+}
+
+.steps__card-title{
+    font-size: var(--normal-font-size);
+    margin-bottom: var(--mb-0-5);
+}
+
+.steps__card-description{
+    font-size: var(--small-font-size);
+}
+
+.steps__card:hover .steps__card-number{
+    transform: translateY(-.25rem);
+}
 
 
-/*========== NEWSLETTER SECTION ==========*/
+/*========== FEATURED SECTION ==========*/
+.feature__text-overlay {
+    width: 100%;
+    height: 100%;    
+    opacity: .45;
+    background-color: black;
+    border-radius: 1rem;
+}
 
+.featured-bg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: var(--box-shadow);
+    border-radius: 1rem;
+}
+
+.featured__inner-wrap{
+    padding: 3.125rem 0;/* 50 px */
+}
+
+.featured__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+p.featured__issue-number,
+h1.featured__title,
+h3.featured__description,
+p.featured__date{
+    color: #fff;
+}
+
+p.featured__issue-number{
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-bold);
+    letter-spacing: .25rem;
+    margin-bottom: var(--mb-0-5);
+    text-transform: uppercase;
+}
+
+h1.featured__title{
+    font-size: var(--h1-font-size);
+    margin-bottom: var(--mb-0-75);
+    text-transform: uppercase;
+}
+
+h3.featured__description,
+p.featured__date
+{
+    font-size: var(--h3-font-size);
+    margin-bottom: var(--mb-0-5);
+}
 
 /*=============== SHOP PAGE ===============*/
-
-
 /*=============== PAGINATION ===============*/
-
-
 /*=============== DETAILS PAGE ===============*/
-
-
 /*=============== ABOUT PAGE ===============*/
-
-
 /*=============== BLOG PAGE ===============*/
-
-
 /*=============== CART PAGE ===============*/
-
-
-
 /*=============== FAQ PAGE ===============*/
-
-
 /*Rotate icon, change color of titles and background*/
-
-
 /*=============== REGISTRATION PAGE ===============*/
-
-
 /*=============== CONTACT PAGE ===============*/
-
-
 /*=============== FOOTER ===============*/
-
-
 /*=============== SCROLL UP ===============*/
-
-
 /* Show Scroll Up*/
-
-
 /*=============== SCROLL BAR ===============*/
-
-
 /*=============== LOGIN ===============*/
 .login {
     position: fixed;
