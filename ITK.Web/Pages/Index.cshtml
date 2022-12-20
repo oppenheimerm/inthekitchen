@@ -4,10 +4,13 @@
     ViewData["Title"] = "Home page";
 }
 
+<section class="home container section">
+    @await Component.InvokeAsync("ProductsGrid")
+</section>
 <!--=============== HOME ===============-->
 <section class="home container">
 
-    <partial name="_ProductsGrid" />
+    
     <partial name="_SwiperSlide" />
 </section>
 
