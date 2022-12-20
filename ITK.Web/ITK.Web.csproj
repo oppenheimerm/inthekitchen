@@ -21,8 +21,4 @@
     <ProjectReference Include="..\ITK.Usecases\ITK.UseCases.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\Components\" />
-  </ItemGroup>
-
 </Project>

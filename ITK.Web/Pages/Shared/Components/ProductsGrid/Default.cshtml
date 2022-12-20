@@ -1,0 +1,96 @@
+﻿@model IQueryable<Category>
+
+<div class="products__grid-filter grid">
+    <a href="#">All</a>
+    @foreach (var category in Model)
+    {
+     <a href="@category.Id">@category.Title</a>
+    }
+</div>
+
+<div class="products__grid grid">
+    <div class="products__grid-gridItem-wrap">
+        <div class="products__grid-gridItem-header">
+            <div class="gridItem__header-button">
+                <a href="#" class="gridItem__header-link">
+                    <div class="gridItem__header-link-wrap button__icon">
+                        £23.45
+                        <i class="bx bx-right-arrow-alt"></i>
+                    </div>                    
+                </a>
+            </div>
+        </div>
+        
+        <div class="products__grid-gridItem-img-wrap">
+            <img class="product__grid-product-img" src="~/img/products/71-1yXRpCSL._AC_SL1500_.jpg" />
+        </div>
+        <div class="products_grid-gridItem-details">
+            <div class="gridItem__details-name">
+                OTOTO Red The Crab Silicone Spoon Rest
+            </div>
+        </div>
+    </div>
+    <div class="products__grid-gridItem-wrap">
+            <div class="products__grid-gridItem-header">
+                <div class="gridItem__header-button">
+                    <a href="#" class="gridItem__header-link">
+                        <div class="gridItem__header-link-wrap button__icon">
+                            £23.45
+                            <i class="bx bx-right-arrow-alt"></i>
+                        </div>                    
+                    </a>
+                </div>
+            </div>
+
+            <div class="products__grid-gridItem-img-wrap">
+                <img class="product__grid-product-img" src="~/img/products/71-1yXRpCSL._AC_SL1500_.jpg" />
+            </div>
+            <div class="products_grid-gridItem-details">
+                <div class="gridItem__details-name">
+                    OTOTO Red The Crab Silicone Spoon Rest
+                </div>
+            </div>
+        </div>
+    <div class="products__grid-gridItem-wrap">
+        <div class="products__grid-gridItem-header">
+            <div class="gridItem__header-button">
+                <a href="#" class="gridItem__header-link">
+                    <div class="gridItem__header-link-wrap button__icon">
+                        £23.45
+                        <i class="bx bx-right-arrow-alt"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="products__grid-gridItem-img-wrap">
+            <img class="product__grid-product-img" src="~/img/products/71-1yXRpCSL._AC_SL1500_.jpg" />
+        </div>
+        <div class="products_grid-gridItem-details">
+            <div class="gridItem__details-name">
+                OTOTO Red The Crab Silicone Spoon Rest
+            </div>
+        </div>
+    </div>
+    <div class="products__grid-gridItem-wrap">
+        <div class="products__grid-gridItem-header">
+            <div class="gridItem__header-button">
+                <a href="#" class="gridItem__header-link">
+                    <div class="gridItem__header-link-wrap button__icon">
+                        £23.45
+                        <i class="bx bx-right-arrow-alt"></i>
+                    </div>                    
+                </a>
+            </div>
+        </div>
+
+        <div class="products__grid-gridItem-img-wrap">
+            <img class="product__grid-product-img" src="~/img/products/71-1yXRpCSL._AC_SL1500_.jpg" />
+        </div>
+        <div class="products_grid-gridItem-details">
+            <div class="gridItem__details-name">
+                OTOTO Red The Crab Silicone Spoon Rest
+            </div>
+        </div>
+    </div>
+</div>

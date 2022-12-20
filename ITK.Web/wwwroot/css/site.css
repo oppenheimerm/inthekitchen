@@ -242,16 +242,105 @@ input {
 
 /*=============== MAIN ===============*/
 /*========== HOME SECTION ==========*/
-.home__content{
+
+/* Products grid */
+.products__grid-filter{
+    grid-gap: 0.75rem;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-content: center;
+}
+
+.products__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0.75rem; /* 8px */
+    grid-row-gap: 0.75rem;
+}
+
+.products__grid-gridItem-header{
+    height: 48px;
+}
+
+.gridItem__header-button{
+    height: 48px;
+    position: relative;
+}
+
+.gridItem__header-link {
+    background-color: var(--first-color);
+    display: block;
+    right: -28px;
+    height: 48px;
+    position: absolute;
+    color: #fff;
+    font-size: var(--normal-font-size);
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: .3s;
+
+}
+.products__grid-gridItem-wrap:hover
+.gridItem__header-link {
+    right: 0;
+}
+.gridItem__header-link-wrap {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}
+
+
+.products__grid-gridItem-wrap {
+    box-shadow: var(--box-shadow);
+    background-color: #ffffff;
+    display: grid;
+    column-gap: .25rem;
+    overflow: hidden;
+}
+
+.products__grid-gridItem-img-wrap{
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.product__grid-product-img {
+    display: block;
+    height: 206px;
+    margin: 0 20% 0;
+    object-fit: contain;
+    width: 60%;
+}
+
+.products_grid-gridItem-details {
+    margin-bottom: var(--mb-2-5);
+    margin-left: .25rem;
+    margin-right: .25rem;
+    margin-bottom: var(--mb-2-5);
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    text-align: center;
+}
+
+.gridItem__details-name {
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+}
+/* Products grid end */
+
+
+.home__content {
     padding: 9rem 0 2rem;
     /* 
-        read repeat(2, 1fr) as:
-        1st number - number of times you want something repeated.
-        2nd number - flexible lengt - how much of any available free
-        space we want something to use, thus 1fr = each taking up 1 portion
-        of the available room.
+    read repeat(2, 1fr) as:
+    1st number - number of times you want something repeated.
+    2nd number - flexible lengt - how much of any available free
+    space we want something to use, thus 1fr = each taking up 1 portion
+    of the available room.
 
-    */
+*/
     grid-template-columns: repeat(2, 1fr);
     column-gap: 3rem;
 }

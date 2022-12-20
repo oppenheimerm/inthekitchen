@@ -1,5 +1,7 @@
 using ITK.DataStore.InMemory;
+using ITK.UseCases.Categories;
 using ITK.UseCases.DataStoreInterfaces;
+using ITK.UseCases.Interfaces;
 using ITK.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -18,11 +20,11 @@ builder.Services.AddRazorPages();
 
 
 //  Repositories
-//builder.Services.AddSingleton<ICategoryRepository, CategoryRepository>();
+builder.Services.AddSingleton<ICategoryRepository, CategoryRepository>();
 
 
 //  Usercases
-//builder.Services.AddTransient<IViewCategoriesUseCase, ViewCategoriesUsecase>();
+builder.Services.AddTransient<IViewCategoriesUseCase, ViewCategoriesUseCase>();
 
 var app = builder.Build();
 
