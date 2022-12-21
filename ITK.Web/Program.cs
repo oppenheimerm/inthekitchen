@@ -1,27 +1,31 @@
-using ITK.DataStore.InMemory;
+using ITK.DataStore.EFCore;
+using ITK.DataStore.EFCore.Repositories;
 using ITK.UseCases.Categories;
 using ITK.UseCases.DataStoreInterfaces;
 using ITK.UseCases.Interfaces;
-using ITK.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddRazorPages();
+
+var connectionString = builder.Configuration.GetConnectionString("ITKContext") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+builder.Services.AddDbContext<ITKDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+// Add the database exception filter
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddRazorPages();
+    .AddEntityFrameworkStores<ITKDbContext>();
 
 
 //  Repositories
-builder.Services.AddSingleton<ICategoryRepository, CategoryRepository>();
-
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+ 
 
 //  Usercases
 builder.Services.AddTransient<IViewCategoriesUseCase, ViewCategoriesUseCase>();
@@ -29,15 +33,29 @@ builder.Services.AddTransient<IViewCategoriesUseCase, ViewCategoriesUseCase>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseMigrationsEndPoint();
-}
-else
+if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+}
+else
+{
+    //  MO 20-12-22
+    app.UseDeveloperExceptionPage();
+    //  MO 20-12-22
+    app.UseMigrationsEndPoint();
+}
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var context = services.GetRequiredService<ITK.DataStore.EFCore.ITKDbContext>();
+    //   takes no action if a database for the context exists. If no
+    //   database exists, it creates the database and schema. 
+    context.Database.EnsureCreated();
+    DbInitializer.Initialize(context);
 }
 
 app.UseHttpsRedirection();

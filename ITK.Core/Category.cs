@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ITK.Core
 {
     public class Category
     {
-        [Required]
-        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
         [Required]
         [MaxLength(25, ErrorMessage = "Maximum 25 character limit")]
