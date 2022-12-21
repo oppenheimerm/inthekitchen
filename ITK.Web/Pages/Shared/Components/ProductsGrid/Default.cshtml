@@ -1,6 +1,22 @@
 ﻿@model List<Category>
 
-<div class="products__grid-filter grid">
+<div class="products__grid-filter-wrap grid">
+    <div class="product__grid-tabs-wrap">
+        <div class="grid__tab-item active"><a href="#">All</a></div>
+        <div class="grid__tab-item"><a href="#">Popular</a></div>
+        <div class="grid__tab-item"><a href="#">New</a></div>
+    </div>
+    <div class="product__price-filter">
+        <div class="product__price-filter-wrap">
+            <a class="price__filter-item active" href="#">All</a>
+            <a class="price__filter-item" href="#">Under £50</a>
+            <a class="price__filter-item" href="#">Under £100</a>
+            <a class="price__filter-item" href="#">Under £200</a>
+        </div>
+    </div>
+</div>
+
+<div class="products__grid-filter grid" style="display:none;"> 
     <a href="#">All</a>
     @foreach (var category in Model)
     {
