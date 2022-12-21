@@ -4,6 +4,7 @@ namespace ITK.Core
 {
     public class OrderEntry
     {
+        public int Id { get; set; }
         [Required]
         public int ProductId { get; set; }
         public Product? Product { get; set; }

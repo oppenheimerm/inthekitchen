@@ -1,4 +1,5 @@
 ﻿using ITK.Core;
+using ITK.UseCases.Response.CategoryResponse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace ITK.UseCases.DataStoreInterfaces
 {
     public interface ICategoryRepository
     {
-        Task AddCategoryAsync(Category category);
-        Task UpdateCategoryAsync(Category category);
-        Task<IQueryable<Category>> GetAllGategoriesAsync();
+        Task<AddUpdateCategoryResponse> AddCategoryAsync(Category category);
+        Task<AddUpdateCategoryResponse> UpdateCategoryAsync(Category category);
+        CategoryQueryResponse GetAllCategories();
     }
 }

@@ -2,6 +2,7 @@
 using ITK.UseCases;
 using ITK.UseCases.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.DependencyModel;
 using System.ComponentModel;
@@ -23,9 +24,11 @@ namespace ITK.Web.ViewComponents
             this.viewCategoriesUseCase = viewCategoriesUseCase;
         }
 
+        //public async Task<IViewComponentResult> InvokeAsync()
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var categories = await viewCategoriesUseCase.ExecuteAsync();
+            var categories = await viewCategoriesUseCase.Execute()
+                .OrderBy(x => x.Title).ToListAsync();
             return View(categories);
         }
     }

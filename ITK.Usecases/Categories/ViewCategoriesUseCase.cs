@@ -13,9 +13,12 @@ namespace ITK.UseCases.Categories
             this.categoryRepository = categoryRepository;
         }
 
-        public async Task<IQueryable<Category>> ExecuteAsync()
+        public IQueryable<Category> Execute()
         {
-            return await categoryRepository.GetAllGategoriesAsync();
+            //  Remember here GetAllCategories is IQuerable, that is,
+            //  it's has not executed anything on the db. until we 
+            //  execute "ToList()" or similar
+            return categoryRepository.GetAllCategories().Categories;
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace ITK.DataStore.InMemory
 {
-    public class CategoryRepository : ICategoryRepository
+    public class CategoryRepository// : ICategoryRepository
     {
-        private List<Category> _categories;
+        /*private List<Category> _categories;
 
         public CategoryRepository()
         {
@@ -62,7 +62,7 @@ namespace ITK.DataStore.InMemory
 
             return await Task.FromResult(categories);
 
-        }
+        }*/
 
     }
 }
