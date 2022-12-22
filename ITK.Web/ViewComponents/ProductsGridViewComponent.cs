@@ -1,12 +1,8 @@
-﻿using Humanizer;
-using ITK.UseCases;
-using ITK.UseCases.Interfaces;
+﻿using ITK.UseCases.Interfaces;
+using ITK.UseCases.Products;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.Extensions.DependencyModel;
-using System.ComponentModel;
-using System.Runtime.Intrinsics.X86;
+
 namespace ITK.Web.ViewComponents
 {
     //  This is the code part of the ProductsGridViewComponent.It makes use of
@@ -18,18 +14,19 @@ namespace ITK.Web.ViewComponents
     [ViewComponent]
     public class ProductsGridViewComponent : ViewComponent
     {
-        private readonly IViewCategoriesUseCase viewCategoriesUseCase;
-        public ProductsGridViewComponent(IViewCategoriesUseCase viewCategoriesUseCase)
+        private readonly IViewProductsByFilterUseCase viewProductsByFilterUseCase;
+        public ProductsGridViewComponent(IViewProductsByFilterUseCase viewProductsByFilterUseCase)
         {
-            this.viewCategoriesUseCase = viewCategoriesUseCase;
+            this.viewProductsByFilterUseCase= viewProductsByFilterUseCase;
         }
 
         //public async Task<IViewComponentResult> InvokeAsync()
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var categories = await viewCategoriesUseCase.Execute()
-                .OrderBy(x => x.Title).ToListAsync();
-            return View(categories);
+
+            var products = await viewProductsByFilterUseCase.Execute(/*filter*/).Products
+                .OrderBy(x => x.DateAdded).ToListAsync();
+                return View(products);
         }
     }
 }

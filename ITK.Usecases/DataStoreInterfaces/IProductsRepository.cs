@@ -1,4 +1,5 @@
 ﻿using ITK.Core;
+using ITK.UseCases.Response.PoductResponse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace ITK.UseCases.DataStoreInterfaces
 {
     public interface IProductsRepository
     {
-        Task AddProductAsync(Product product);
+        Task<AddUpdateProductResponse> AddProductAsync(Product product);
 
-        Task UpdateProductAsync(Product product);
+        Task<AddUpdateProductResponse> UpdateProductAsync(Product product);
 
-        Task<IQueryable<Product>> GetAllProductsAsync();
+        ProductQueryResponse GetAllProducts();
     }
 }

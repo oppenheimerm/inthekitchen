@@ -3,6 +3,7 @@ using ITK.DataStore.EFCore.Repositories;
 using ITK.UseCases.Categories;
 using ITK.UseCases.DataStoreInterfaces;
 using ITK.UseCases.Interfaces;
+using ITK.UseCases.Products;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,10 +26,12 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 
 //  Repositories
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
- 
+builder.Services.AddScoped<IProductsRepository, ProductsRepository>();
+
 
 //  Usercases
 builder.Services.AddTransient<IViewCategoriesUseCase, ViewCategoriesUseCase>();
+builder.Services.AddTransient<IViewProductsByFilterUseCase, ViewProductsByFilterUseCase>();
 
 var app = builder.Build();
 

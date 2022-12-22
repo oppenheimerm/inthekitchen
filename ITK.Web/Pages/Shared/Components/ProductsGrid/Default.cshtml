@@ -1,4 +1,5 @@
-﻿@model List<Category>
+﻿@using System.Globalization
+@model List<Product>
 
 <div class="products__grid-filter-wrap grid">
     <div class="product__grid-tabs-wrap">
@@ -16,97 +17,37 @@
     </div>
 </div>
 
-<div class="products__grid-filter grid" style="display:none;"> 
-    <a href="#">All</a>
-    @foreach (var category in Model)
-    {
-     <a href="@category.Id">@category.Title</a>
-    }
-</div>
-
-<div class="products__grid grid">
-    <div class="products__grid-gridItem-wrap">
-        <div class="products__grid-gridItem-header">
-            <div class="gridItem__header-button">
-                <a href="#" class="gridItem__header-link">
-                    <div class="gridItem__header-link-wrap button__icon">
-                        £23.45
-                        <i class="bx bx-right-arrow-alt"></i>
-                    </div>                    
-                </a>
-            </div>
-        </div>
+@{
+    if(Model != null){
+        <div class="products__grid grid">
+            @foreach (var item in Model)
+            {
+                <div class="products__grid-gridItem-wrap">
+                        <div class="products__grid-gridItem-header">
+                            <div class="gridItem__header-button">
+                                <a href="#" class="gridItem__header-link">
+                                    <div class="gridItem__header-link-wrap button__icon">
+                                        £ @String.Format(CultureInfo.InvariantCulture,"{0:0.00}", @item.Price)
+                                        <i class="bx bx-right-arrow-alt"></i>
+                                    </div>                    
+                                </a>
+                            </div>
+                        </div>
         
-        <div class="products__grid-gridItem-img-wrap">
-            <img class="product__grid-product-img" src="~/img/products/71-1yXRpCSL._AC_SL1500_.jpg" />
-        </div>
-        <div class="products_grid-gridItem-details">
-            <div class="gridItem__details-name">
-                OTOTO Red The Crab Silicone Spoon Rest
-            </div>
-        </div>
-    </div>
-    <div class="products__grid-gridItem-wrap">
-            <div class="products__grid-gridItem-header">
-                <div class="gridItem__header-button">
-                    <a href="#" class="gridItem__header-link">
-                        <div class="gridItem__header-link-wrap button__icon">
-                            £23.45
-                            <i class="bx bx-right-arrow-alt"></i>
-                        </div>                    
-                    </a>
-                </div>
-            </div>
-
-            <div class="products__grid-gridItem-img-wrap">
-                <img class="product__grid-product-img" src="~/img/products/71-1yXRpCSL._AC_SL1500_.jpg" />
-            </div>
-            <div class="products_grid-gridItem-details">
-                <div class="gridItem__details-name">
-                    OTOTO Red The Crab Silicone Spoon Rest
-                </div>
-            </div>
-        </div>
-    <div class="products__grid-gridItem-wrap">
-        <div class="products__grid-gridItem-header">
-            <div class="gridItem__header-button">
-                <a href="#" class="gridItem__header-link">
-                    <div class="gridItem__header-link-wrap button__icon">
-                        £23.45
-                        <i class="bx bx-right-arrow-alt"></i>
+                        <div class="products__grid-gridItem-img-wrap">
+                            <img class="product__grid-product-img" src="~/img/products/@item.Image" />
+                        </div>
+                        <div class="products_grid-gridItem-details">
+                            <div class="gridItem__details-name">
+                                @StringExtensions.ShortenAndFormatText(item.Title, 50).ToString()
+                            </div>
+                        </div>
                     </div>
-                </a>
-            </div>
+            }
         </div>
-
-        <div class="products__grid-gridItem-img-wrap">
-            <img class="product__grid-product-img" src="~/img/products/71-1yXRpCSL._AC_SL1500_.jpg" />
-        </div>
-        <div class="products_grid-gridItem-details">
-            <div class="gridItem__details-name">
-                OTOTO Red The Crab Silicone Spoon Rest
-            </div>
-        </div>
-    </div>
-    <div class="products__grid-gridItem-wrap">
-        <div class="products__grid-gridItem-header">
-            <div class="gridItem__header-button">
-                <a href="#" class="gridItem__header-link">
-                    <div class="gridItem__header-link-wrap button__icon">
-                        £23.45
-                        <i class="bx bx-right-arrow-alt"></i>
-                    </div>                    
-                </a>
-            </div>
-        </div>
-
-        <div class="products__grid-gridItem-img-wrap">
-            <img class="product__grid-product-img" src="~/img/products/71-1yXRpCSL._AC_SL1500_.jpg" />
-        </div>
-        <div class="products_grid-gridItem-details">
-            <div class="gridItem__details-name">
-                OTOTO Red The Crab Silicone Spoon Rest
-            </div>
-        </div>
-    </div>
-</div>
+    }
+    else
+    {
+        <h1>Loading</h1>
+    }
+}
