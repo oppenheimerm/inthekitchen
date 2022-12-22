@@ -397,7 +397,7 @@ a.price__filter-item.active {
 }
 
 .gridItem__details-name {
-    font-size: var(--normal-font-size);
+    font-size: 0.75rem;
     font-weight: var(--font-medium);
 }
 /* Products grid end */

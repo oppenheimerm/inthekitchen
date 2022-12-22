@@ -20,6 +20,8 @@ namespace ITK.Core
         [MaxLength(200, ErrorMessage = "Maximum 200 character limit")]
         public string  Description { get; set; }
         [Required]
+        public DateTime? DateAdded { get; set; }
+        [Required]
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
         [Required]
