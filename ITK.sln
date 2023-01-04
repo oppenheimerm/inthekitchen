@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITK.Core", "ITK.Core\ITK.Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITK.UseCases", "ITK.Usecases\ITK.UseCases.csproj", "{94B4A1C9-8408-4E58-B18A-5A6B64649020}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITK.DataStore.EFCore", "ITK.DataStore.EFCore\ITK.DataStore.EFCore.csproj", "{BF5B9F19-8B3A-4182-958F-03621EF17FC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITK.DataStore.EFCore", "ITK.DataStore.EFCore\ITK.DataStore.EFCore.csproj", "{BF5B9F19-8B3A-4182-958F-03621EF17FC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

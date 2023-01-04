@@ -1,11 +1,38 @@
-﻿@page
+﻿@page "{pageIndex:int?}"
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
 <section class="home container section">
-    @await Component.InvokeAsync("ProductsGrid")
+
+<div class="products__grid-filter-wrap grid">
+    <div class="product__grid-tabs-wrap">
+        <div class="grid__tab-item active">
+            <a class="navbar-brand" asp-page="./Index">All</a>
+        </div>
+        <div class="grid__tab-item">
+            <a asp-page="/Explore/New">New</a>
+        </div>
+        <div class="grid__tab-item">
+            <a asp-page="/Explore/Popular">Popular</a>
+        </div>
+    </div>
+</div>
+
+    @await Component.InvokeAsync("ProductsGrid", new {
+        pageIndex = Model.PageIndex
+    })
+
+    <ul class="pagination">
+        <li class="page-item">
+            <div class="page-link" href="#" aria-label="Previous" onclick="PrevPageAsync">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </div>
+        </li>
+    </ul>
+
 </section>
 <!--=============== HOME ===============-->
 <section class="home container">

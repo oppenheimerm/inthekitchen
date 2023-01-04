@@ -39,7 +39,7 @@ namespace ITK.DataStore.EFCore.Repositories
             ProductQueryResponse productQueryResponse= new();
 
             try {
-                productQueryResponse.Products = context.Products.AsQueryable();
+                productQueryResponse.Products = context.Products.OrderBy(x => x.DateAdded).AsQueryable();
                 productQueryResponse.Success = true;
                 return productQueryResponse;
             }

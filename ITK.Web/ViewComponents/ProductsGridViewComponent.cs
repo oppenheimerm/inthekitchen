@@ -1,6 +1,9 @@
-﻿using ITK.UseCases.Interfaces;
+﻿using Microsoft.AspNetCore.Mvc;
+using ITK.Core;
+using ITK.UseCases.Utilities;
 using ITK.UseCases.Products;
-using Microsoft.AspNetCore.Mvc;
+using ITK.Web.Pages;
+using ITK.UseCases.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace ITK.Web.ViewComponents
@@ -14,19 +17,44 @@ namespace ITK.Web.ViewComponents
     [ViewComponent]
     public class ProductsGridViewComponent : ViewComponent
     {
-        private readonly IViewProductsByFilterUseCase viewProductsByFilterUseCase;
-        public ProductsGridViewComponent(IViewProductsByFilterUseCase viewProductsByFilterUseCase)
+        private IViewProductsByFilterUseCase ViewProductsByFilterUseCase { get; }
+        private readonly ILogger<IndexModel> _logger;
+        public PaginatedList<Product> Products { get; set; }
+        private IConfiguration Configuration { get; }
+        public int? PageIndex { get; set; }
+
+        public ProductsGridViewComponent(
+            IConfiguration configuration, 
+            ILogger<IndexModel> logger,
+            IViewProductsByFilterUseCase viewProductsByFilterUseCase)
         {
-            this.viewProductsByFilterUseCase= viewProductsByFilterUseCase;
+            Configuration = configuration;
+            _logger = logger;
+            ViewProductsByFilterUseCase = viewProductsByFilterUseCase;
         }
 
-        //public async Task<IViewComponentResult> InvokeAsync()
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync(
+            int? pageIndex
+            )
         {
+            PageIndex = pageIndex;
+            await GetDataAsync();
 
-            var products = await viewProductsByFilterUseCase.Execute(/*filter*/).Products
-                .OrderBy(x => x.DateAdded).ToListAsync();
-                return View(products);
+            return View(Products);
+        }
+
+        public async Task GetDataAsync()
+        {
+            if (PageIndex == null || !PageIndex.HasValue)
+            {
+                PageIndex = 1;
+            }
+
+            var pageSize = Configuration.GetValue("PageSize", 15);
+            Products = await PaginatedList<Product>.CreateAsync(
+                ViewProductsByFilterUseCase.Execute().Products.AsNoTracking(),
+                PageIndex ?? 1, pageSize
+                );
         }
     }
 }
