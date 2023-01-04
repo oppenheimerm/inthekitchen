@@ -1,0 +1,34 @@
+﻿@page "{filter?}"
+@model ITK.Web.Pages.Explore.NewModel
+@{
+    ViewData["Title"] = "Discover our newest products";
+}
+
+<section class="home container section">
+
+    <div class="products__grid-filter-wrap grid">
+        <div class="product__grid-tabs-wrap">
+            <div class="grid__tab-item active">
+                <a asp-page="./Index">All</a>
+            </div>
+            <div class="grid__tab-item">
+                <a asp-page="/Explore/New" asp-route-filterType="@FilterType.All">New</a>
+            </div>
+            <div class="grid__tab-item">
+                <a asp-page="/Explore/Popular">Popular</a>
+            </div>
+
+        </div>
+        <div class="product__price-filter">
+            <div class="product__price-filter-wrap">
+                <a class="price__filter-item active" asp-page="/Explore/New" asp-route-filterType="@FilterType.All">All</a>
+                <a class="price__filter-item" asp-page="/Explore/New" asp-route-filterType="@FilterType.LessThan50">Under £50</a>
+                <a class="price__filter-item" asp-page="/Explore/New" asp-route-filterType="@FilterType.LestThan100">Under £100</a>
+                <a class="price__filter-item" asp-page="/Explore/New" asp-route-filterType="@FilterType.LessThan250">Under £250</a>
+            </div>
+        </div>
+    </div>
+
+    @await Component.InvokeAsync("ProductsGrid", new {
+    })
+</section>

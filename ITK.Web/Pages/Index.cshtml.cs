@@ -1,20 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ITK.Core;
+using ITK.DataStore.EFCore;
+using ITK.UseCases.Interfaces;
+using ITK.UseCases.Utilities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ITK.Web.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-
-        public IndexModel(ILogger<IndexModel> logger)
-        {
-            _logger = logger;
+        public int? PageIndex { get; set; }
+        public IndexModel()
+        {   
         }
+        
 
-        public void OnGet()
+        public void OnGet(int? pageIndex)
         {
-
+            PageIndex = pageIndex;
         }
     }
 }
